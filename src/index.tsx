@@ -1,14 +1,17 @@
 import * as React from 'react';
 import * as ReactDom from 'react-dom';
-
+import {Provider} from 'react-redux';
 import {App} from "./components/App";
 import Routes from "./pages/routes";
+import store from "./store";
 
 const ROOT = document.querySelector(".container");
 
 ReactDom.render(
+    <Provider store ={store}>
 
-<Routes /> , ROOT
+<Routes />
+    </Provider>, ROOT
 );
 
 // class index extends React.Component {
