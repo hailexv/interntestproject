@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import * as React from "react";
 import femaleavatar from '../assets/images/femaleavatar.png';
-
+import ButtonComponent from "./button/ButtonComponent";
 import StyledCard from './StyledCard';
 
 
@@ -54,6 +54,7 @@ const EmployeeCard = props => {
             <Name>{props.employee_name}</Name>
             <Lastname>{props.employee_age}</Lastname>
 
+            <ButtonComponent>Delete</ButtonComponent>
         </StyledCard>
     );
 };
