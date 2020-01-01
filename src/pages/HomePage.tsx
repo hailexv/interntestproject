@@ -11,6 +11,7 @@ import Navbar from "../components/Navigation/NavComponent";
 import {Box, Flex} from "rebass";
 import HorizontalFlex from "../components/HorizontalFlex";
 import {AddEmployeeForm} from "../components/Form/AddEmployeeForm";
+import {EditEmployeeForm} from "../components/Form/UpdateEmployeeForm";
 
 
 class HomePage extends React.Component {
@@ -51,6 +52,9 @@ class HomePage extends React.Component {
                         </div>
                         <div>
                             {users}
+                        </div>
+                        <div>
+                            <EditEmployeeForm/>
                         </div>
 
                     </HorizontalFlex>
