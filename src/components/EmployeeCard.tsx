@@ -3,6 +3,7 @@ import * as React from "react";
 import femaleavatar from '../assets/images/femaleavatar.png';
 import ButtonComponent from "./button/ButtonComponent";
 import StyledCard from './StyledCard';
+import {useState} from "react";
 
 
 const Age = styled.div`
@@ -45,6 +46,14 @@ const Lastname = styled.span`
 
 
 const EmployeeCard = props => {
+
+    let id = useState(props.id)
+
+   let handleDelete = (event)=>{
+       event.preventDefault();
+       //dispatch
+   }
+
     return (
         <StyledCard>
             <ProfilePic src={props.employee_image} alt="Person" />
@@ -53,6 +62,8 @@ const EmployeeCard = props => {
             </Age>
             <Name>{props.employee_name}</Name>
             <Lastname>{props.employee_age}</Lastname>
+
+            <button value={props.employee_id} onClick={props.onDelete}>Hey</button>
 
             <ButtonComponent>Delete</ButtonComponent>
         </StyledCard>
