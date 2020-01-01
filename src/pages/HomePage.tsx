@@ -7,11 +7,15 @@ import EmployeeCard from "../components/EmployeeCard";
 import {getEmployeeStart,deleteEmployee} from "../actions";
 import {connect} from 'react-redux';
 import {bindActionCreators} from "redux";
-
-
+import Navbar from "../components/Navigation/NavComponent";
+import {Box, Flex} from "rebass";
+import HorizontalFlex from "../components/HorizontalFlex";
+import {AddEmployeeForm} from "../components/Form/AddEmployeeForm";
 
 
 class HomePage extends React.Component {
+
+
 
     componentDidMount(): void {
         this.props.getEmployeeStart();
@@ -23,6 +27,7 @@ class HomePage extends React.Component {
     }
 
     render() {
+        let containerStyle = {height:"100vh",width:"100vw",overflowY:"hidden"};
         const results = this.props.Users || [];
         console.log(results);
 
@@ -36,23 +41,34 @@ class HomePage extends React.Component {
             )) : users = <CubeGrid  color="#333" size="130px" />;
 
         return (
+
             <ThemeProvider theme={theme}>
-                <Box bg="orange" fontSize={24} width={200} p={20} m="50px auto">
-                    This is a Box
-                </Box>
-                {users}
+                <Navbar/>
+
+                    <HorizontalFlex>
+                        <div>
+                           <AddEmployeeForm/>
+                        </div>
+                        <div>
+                            {users}
+                        </div>
+
+                    </HorizontalFlex>
+
+
+
+
+
+
+
+
             </ThemeProvider>
 
         );
     }
 }
 
-const Box = styled.div`
-  ${space}
-  ${width}
-  ${fontSize}
-  ${color}
-`;
+
 
 const mapStateToProps = state => ({ Users: state.data });
 
