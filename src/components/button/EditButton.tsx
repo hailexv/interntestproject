@@ -2,12 +2,13 @@ import * as React from "react";
 import styled from 'styled-components';
 
 
-const ButtonComponent = styled.button`
-  background: ${props => props.background};;
+const EditButton = styled.button`
+  background: #ED5E68;
   color: white;
   border-radius: 4px;
   padding: 0.5rem;
-  bottom: ${props => props.bottom};
+
+  bottom: 1%;
   right: 10%;
   display: flex;
   align-items: center;
@@ -25,4 +26,4 @@ const ButtonComponent = styled.button`
 
 
 
-export default ButtonComponent;
+export default EditButton;

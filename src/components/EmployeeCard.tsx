@@ -63,9 +63,11 @@ const EmployeeCard = props => {
             <Name>{props.employee_name}</Name>
             <Lastname>{props.employee_age}</Lastname>
 
-            <button value={props.employee_id} onClick={props.onDelete}>Hey</button>
 
-            <ButtonComponent>Delete</ButtonComponent>
+
+            <ButtonComponent value={props.employee_id} onClick={props.onDelete} bottom='13%' background='#ED5E68'>Delete</ButtonComponent>
+            <ButtonComponent value={props.employee_id} onClick={props.onDelete} bottom='1%' background='#57B157'>Edit</ButtonComponent>
+
         </StyledCard>
     );
 };
