@@ -36,7 +36,7 @@ export function* deleteUserAsync(action) {
         method: "DELETE",
     });
 
-
+    yield put({type: GET_EMP_START});
 
     //yield put({ type: DELETE_EMPLOYEE_ASYNC, payload: action.payload });
 }
