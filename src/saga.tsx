@@ -36,6 +36,8 @@ export function* addNewEmployee(action) {
         body: JSON.stringify(action.payload)
     });
 
+    yield put({type: GET_EMP_START});
+
 }
 
 export function* deleteUserAsync(action) {
