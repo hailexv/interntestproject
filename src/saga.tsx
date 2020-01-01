@@ -27,6 +27,17 @@ function* getApiData(action) {
     }
 }
 
+export function* addNewEmployee(action) {
+
+    //console.log(JSON.stringify(action.payload));
+    yield call(fetch, "http://dummy.restapiexample.com/api/v1/create", {
+        method: "POST",
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify(action.payload)
+    });
+
+}
+
 export function* deleteUserAsync(action) {
     console.log('go');
     console.log('good as hell' + action.payload);
@@ -41,23 +52,24 @@ export function* deleteUserAsync(action) {
     //yield put({ type: DELETE_EMPLOYEE_ASYNC, payload: action.payload });
 }
 
-function* deleteEmployee (action,{ id }) {
-    try {
-
-        //const newData = yield call(deleteEmployeeById,id);
-        console.log("saga");
-        //yield put(deleteEmployeeSuccess(id));
-
-    } catch (e) {
-
-    }
-}
+// function* deleteEmployee (action,{ id }) {
+//     try {
+//
+//         //const newData = yield call(deleteEmployeeById,id);
+//         console.log("saga");
+//         //yield put(deleteEmployeeSuccess(id));
+//
+//     } catch (e) {
+//
+//     }
+// }
 
 
 
 export default function* mySaga() {
     yield takeLatest(GET_EMP_START, getApiData);
     yield takeLatest(DELETE_EMPLOYEE, deleteUserAsync);
+    yield takeLatest(ADD_EMPLOYEE, addNewEmployee);
 }
 
 

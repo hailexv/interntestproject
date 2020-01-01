@@ -2,7 +2,7 @@ import  { Fragment } from 'react';
 import * as React from "react";
 import {ChangeEvent, FormEvent, useState} from "react";
 import { useSelector, useDispatch } from 'react-redux';
-
+import {ADD_EMPLOYEE} from "../../actions/types";
 
 
 import styled from 'styled-components';
@@ -149,7 +149,12 @@ export const AddEmployeeForm = () => {
         event.preventDefault();
         const employee = {name:name, salary:salary, age:age};
 
+        dispatch({
+            type: ADD_EMPLOYEE,
+            payload: employee
+        })
 
+        //console.log('uncertain');
 
     };
 
@@ -187,7 +192,7 @@ export const AddEmployeeForm = () => {
 
             <SmallTitle> Add new employee</SmallTitle>
             <Content>
-                <LoginForm__Wrapper>
+                <LoginForm__Wrapper onSubmit={handleSubmit}>
                     <LoginForm__Content>
                         <StyledForm noValidate name="form">
                             <TextInput__Wrapper>
