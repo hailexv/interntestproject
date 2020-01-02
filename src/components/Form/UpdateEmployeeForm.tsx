@@ -1,4 +1,4 @@
-import  { Fragment } from 'react';
+import  { Fragment,useEffect } from 'react';
 import * as React from "react";
 import {ChangeEvent, FormEvent, useState} from "react";
 import { useSelector, useDispatch } from 'react-redux';
@@ -140,10 +140,25 @@ const Button = styled('button')`
 `;
 
 export const EditEmployeeForm = () => {
+
+    let singleEmployee: { employee_name: string, employee_age: string, employee_salary: string, id: number } = useSelector(state => state.data.user);
+
+    console.log('profile name is' + singleEmployee.employee_name);
+
+
     const dispatch = useDispatch();
-    let [name, setName] = useState('');
-    let [age, setAge] = useState('');
-    let [salary, setSalary] = useState('');
+    var [name, setName] = useState('');
+    var [age, setAge] = useState((singleEmployee)?singleEmployee.employee_age:'');
+    var [salary, setSalary] = useState('');
+
+    useEffect(() => {
+
+        if (singleEmployee) {
+            setName(singleEmployee.employee_name);
+            setAge(singleEmployee.employee_age);
+            setSalary(singleEmployee.employee_salary);
+        }
+    }, [singleEmployee]);
 
     let handleSubmit = (event: FormEvent): void => {
         event.preventDefault();

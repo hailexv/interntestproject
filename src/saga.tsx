@@ -1,16 +1,17 @@
-import { call, put, takeEvery, takeLatest } from 'redux-saga/effects';
-import {getEmployeeStart, getEmployeeSuccess} from "./actions";
+import { call, put, takeEvery, takeLatest, apply } from 'redux-saga/effects';
+import {getEmployeeStart, getEmployeeSuccess,getSingleEmployeeSuccess} from "./actions";
 import {deleteEmployeeSuccess} from "./actions";
 import {GET_EMP_START,DELETE_EMPLOYEE_ASYNC} from "./actions/types";
 import {DELETE_EMP_START} from "./actions/types";
-import {fetchData} from "./apis";
-import {deleteEmployeeById} from "./apis";
+import {fetchData,fetchSingleEmployee} from "./apis";
 import axios from "axios";
 import {
     ADD_EMPLOYEE,
     EDIT_EMPLOYEE,
-    DELETE_EMPLOYEE
+    DELETE_EMPLOYEE,
+    GET_SINGLE_EMP
 } from "./actions/types";
+import {string} from "prop-types";
 
 
 
@@ -37,6 +38,35 @@ export function* addNewEmployee(action) {
     });
 
     yield put({type: GET_EMP_START});
+
+}
+
+export function*  getSingleEmployee(action) {
+
+     const fetchSingleEmployee = async() => {
+        try{
+            const response = await fetch(`http://dummy.restapiexample.com/api/v1/employee/` + action.payload);
+            const data = await response.json();
+
+            return data;
+        } catch (e) {
+            console.log(e);
+        }
+    }
+
+    const singleEmployee = yield call(fetchSingleEmployee);
+
+    yield put(getSingleEmployeeSuccess(singleEmployee));
+
+
+
+        //yield put(getEmployeeSuccess(data));
+
+
+
+
+    //let extracted = yield apply(data, data.json);
+
 
 }
 
@@ -72,6 +102,7 @@ export default function* mySaga() {
     yield takeLatest(GET_EMP_START, getApiData);
     yield takeLatest(DELETE_EMPLOYEE, deleteUserAsync);
     yield takeLatest(ADD_EMPLOYEE, addNewEmployee);
+    yield takeLatest(GET_SINGLE_EMP,getSingleEmployee)
 }
 
 

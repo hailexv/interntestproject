@@ -9,6 +9,17 @@ export const fetchData = async () =>{
     }
 }
 
+export const fetchSingleEmployee = async(id) => {
+    try{
+        const response = await fetch(`http://dummy.restapiexample.com/api/v1/employee/` + id);
+        const data = await response.json();
+
+        return data;
+    } catch (e) {
+        console.log(e);
+    }
+}
+
 export const deleteEmployeeById = async(id) =>{
     try{
         const response = await fetch("http://dummy.restapiexample.com/api/v1/delete/" + id , {

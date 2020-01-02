@@ -3,7 +3,7 @@ import {GET_EMP_FAIL} from "./types";
 import {GET_EMP_SUCCESS} from "./types";
 import {DELETE_EMP_SUCCESS} from "./types";
 import {DELETE_EMP_START} from "./types";
-import {ADD_EMPLOYEE_BUTTON_CLICKED,ADD_EMPLOYEE,EDIT_MODE,EDIT_EMPLOYEE,DELETE_EMPLOYEE} from "./types";
+import {ADD_EMPLOYEE,EDIT_EMPLOYEE,DELETE_EMPLOYEE,GET_SINGLE_EMP,GET_SINGLE_EMP_SUCCESS} from "./types";
 import {Employee} from "./types";
 import data from "../reducers/data";
 
@@ -62,18 +62,19 @@ export const deleteEmployee = (userId) =>
         }
     )
 
-
-
-export const editMode = () =>
+export const getSingleEmployee = (userId) =>
     (
         {
-            type:EDIT_MODE
+            type:GET_SINGLE_EMP,
+            payload:userId
         }
     )
 
-export const addUserBtnClicked = () =>
-    (
-        {
-            type:ADD_EMPLOYEE_BUTTON_CLICKED
-        }
-    )
+export const  getSingleEmployeeSuccess = (data: Employee) =>({
+    type: GET_SINGLE_EMP_SUCCESS,
+    data
+});
+
+
+
+

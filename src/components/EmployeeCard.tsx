@@ -6,6 +6,8 @@ import StyledCard from './StyledCard';
 import {useState} from "react";
 
 
+
+
 const Age = styled.div`
   height: 80px;
   width: 80px;
@@ -66,7 +68,7 @@ const EmployeeCard = props => {
 
 
             <ButtonComponent value={props.employee_id} onClick={props.onDelete} bottom='13%' background='#ED5E68'>Delete</ButtonComponent>
-            <ButtonComponent value={props.employee_id} onClick={props.onDelete} bottom='1%' background='#57B157'>Edit</ButtonComponent>
+            <ButtonComponent value={props.employee_id} onClick={props.onEdit} bottom='1%' background='#57B157'>Edit</ButtonComponent>
 
         </StyledCard>
     );
