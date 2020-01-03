@@ -7,10 +7,6 @@ import {ADD_EMPLOYEE,EDIT_EMPLOYEE,DELETE_EMPLOYEE,GET_SINGLE_EMP,GET_SINGLE_EMP
 import {Employee} from "./types";
 import data from "../reducers/data";
 
-export const REQUEST_DATA_FROM_API = "REQUEST_DATA_FROM_API";
-export const RECEIVE_DATA_FROM_API = "RECEIVE_DATA_FROM_API";
-
-
 
 export const  getEmployeeStart = () =>({
     type: GET_EMP_START
@@ -21,21 +17,7 @@ export const  getEmployeeSuccess = (data: Employee[]) =>({
     data
 });
 
-export const  getEmployeeFail = (error: Employee[]) =>({
-    type: GET_EMP_FAIL,
-    data:error
-});
 
-export const  deleteEmployeeStart = () =>({
-    type: DELETE_EMP_START
-});
-
-export const deleteEmployeeSuccess =  (id:number) => {
-    return {
-        type: DELETE_EMP_SUCCESS,
-        data: id
-    }
-}
 
 export const addEmployee = (user)=>
     (

@@ -1,17 +1,13 @@
 import { call, put, takeEvery, takeLatest, apply } from 'redux-saga/effects';
 import {getEmployeeStart, getEmployeeSuccess,getSingleEmployeeSuccess} from "./actions";
-import {deleteEmployeeSuccess} from "./actions";
 import {GET_EMP_START,DELETE_EMPLOYEE_ASYNC} from "./actions/types";
-import {DELETE_EMP_START} from "./actions/types";
 import {fetchData,fetchSingleEmployee} from "./apis";
-import axios from "axios";
 import {
     ADD_EMPLOYEE,
     EDIT_EMPLOYEE,
     DELETE_EMPLOYEE,
     GET_SINGLE_EMP
 } from "./actions/types";
-import {string} from "prop-types";
 
 
 
@@ -105,18 +101,6 @@ export function* deleteUserAsync(action) {
 
     //yield put({ type: DELETE_EMPLOYEE_ASYNC, payload: action.payload });
 }
-
-// function* deleteEmployee (action,{ id }) {
-//     try {
-//
-//         //const newData = yield call(deleteEmployeeById,id);
-//         console.log("saga");
-//         //yield put(deleteEmployeeSuccess(id));
-//
-//     } catch (e) {
-//
-//     }
-// }
 
 
 
