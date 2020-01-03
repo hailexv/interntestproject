@@ -2,7 +2,7 @@ import  { Fragment,useEffect } from 'react';
 import * as React from "react";
 import {ChangeEvent, FormEvent, useState} from "react";
 import { useSelector, useDispatch } from 'react-redux';
-import {ADD_EMPLOYEE} from "../../actions/types";
+import {EDIT_EMPLOYEE} from "../../actions/types";
 
 
 import styled from 'styled-components';
@@ -162,14 +162,14 @@ export const EditEmployeeForm = () => {
 
     let handleSubmit = (event: FormEvent): void => {
         event.preventDefault();
-        const employee = {name:name, salary:salary, age:age};
+        const employee = {name:name, salary:salary, age:age, id:singleEmployee.id};
 
         dispatch({
-            type: ADD_EMPLOYEE,
+            type: EDIT_EMPLOYEE,
             payload: employee
         })
 
-        //console.log('uncertain');
+        console.log('uncertain');
 
     };
 
@@ -197,6 +197,8 @@ export const EditEmployeeForm = () => {
                 return;
         }
     };
+
+
 
 
 

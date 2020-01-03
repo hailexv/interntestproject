@@ -20,7 +20,8 @@ function* getApiData(action) {
     try {
         const data = yield call(fetchData);
 
-        console.log("saga", data);
+        console.log("users are", data);
+
         yield put(getEmployeeSuccess(data));
 
     } catch (e) {
@@ -35,6 +36,27 @@ export function* addNewEmployee(action) {
         method: "POST",
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify(action.payload)
+    });
+
+    yield put({type: GET_EMP_START});
+
+}
+
+export function* editEmployee(action) {
+
+    //console.log(JSON.stringify(action.payload));
+    console.log('got em' + action.payload.id);
+
+    let employeeToBeUpdated = {
+        name: action.payload.name,
+        salary: action.payload.salary,
+        age: action.payload.age
+    }
+
+    yield call(fetch, `http://dummy.restapiexample.com/api/v1/update/${action.payload.id}`, {
+        method: "PUT",
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify(employeeToBeUpdated),
     });
 
     yield put({type: GET_EMP_START});
@@ -102,7 +124,8 @@ export default function* mySaga() {
     yield takeLatest(GET_EMP_START, getApiData);
     yield takeLatest(DELETE_EMPLOYEE, deleteUserAsync);
     yield takeLatest(ADD_EMPLOYEE, addNewEmployee);
-    yield takeLatest(GET_SINGLE_EMP,getSingleEmployee)
+    yield takeLatest(GET_SINGLE_EMP,getSingleEmployee);
+    yield takeLatest(EDIT_EMPLOYEE,editEmployee)
 }
 
 
