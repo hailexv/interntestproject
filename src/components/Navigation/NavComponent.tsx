@@ -5,7 +5,7 @@ import {navBarStyle,navBarBrandStyle} from "./NavStyle";
 export default function Navbar() {
     return (
         <Flex px={2} sx={navBarStyle}>
-            <Text p={5}  sx={navBarBrandStyle}>Title</Text>
+            <Text p={5}  sx={navBarBrandStyle}>INTERN TEST PROJECT</Text>
         </Flex>
 
     )

@@ -10,6 +10,7 @@ import styled from 'styled-components';
 
 const SmallTitle = styled('div')`
   font-weight: normal;
+  
   padding-left: 5px;
   text-transform: uppercase;
   font-family: SimplonNorm-Medium, Helvetica, sans-serif;
@@ -55,7 +56,7 @@ const TextInput__Wrapper = styled('div')`
   overflow: visible;
 `;
 
-const placeholderColor = '#dddddd';
+const placeholderColor = '#727080';
 const TextInput__Input = styled('input')`
   position: relative;
   width: 100%;
@@ -66,7 +67,7 @@ const TextInput__Input = styled('input')`
   text-transform: none;
   border-width: 1px;
   border-style: solid;
-  border-color: rgb(220, 220, 220);
+  border-color: #B7B4CC;
   border-image: initial;
   padding: 10px 15px;
   outline: none;

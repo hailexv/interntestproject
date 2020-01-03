@@ -14,6 +14,7 @@ const SmallTitle = styled('div')`
   text-transform: uppercase;
   font-family: SimplonNorm-Medium, Helvetica, sans-serif;
   font-size: 18px;
+  
   line-height: 27px;
   letter-spacing: 0.125em;
   -webkit-font-smoothing: antialiased;
@@ -28,6 +29,7 @@ const Content = styled('div')`
   max-width: 556px;
   text-align: center;
   position: relative;
+  position:fixed;
   padding: 15px;
   background: white;
   margin: 5px;
@@ -55,7 +57,7 @@ const TextInput__Wrapper = styled('div')`
   overflow: visible;
 `;
 
-const placeholderColor = '#dddddd';
+const placeholderColor = '#727080';
 const TextInput__Input = styled('input')`
   position: relative;
   width: 100%;
@@ -66,7 +68,7 @@ const TextInput__Input = styled('input')`
   text-transform: none;
   border-width: 1px;
   border-style: solid;
-  border-color: rgb(220, 220, 220);
+  border-color: #B7B4CC;
   border-image: initial;
   padding: 10px 15px;
   outline: none;

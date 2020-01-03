@@ -5,5 +5,6 @@ export default styled.div`
   flex-direction: row;
   overflowY:"hidden";
   width:"100%";
+  
 
 `;

@@ -1,8 +1,9 @@
 export const navBarStyle ={
     color:"white",
-    backgroundColor:'#484c7f',
-    alignItems:"center",
-    height:"5%"
+    backgroundColor:'#C1C6E8',
+    height:"5%",
+    margin:"-2rem",
+
 };
 export const navBarBrandStyle = {
     fontFamily: "Inria Serif, serif",
